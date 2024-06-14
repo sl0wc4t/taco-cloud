@@ -1,7 +1,6 @@
 package tacos.web;
 
 import jakarta.validation.Valid;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +15,6 @@ import tacos.data.IngredientRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Slf4j
 @Controller
 @RequestMapping("/design")
 @SessionAttributes("tacoOrder")
@@ -60,7 +58,6 @@ public class DesignTacoController {
             return "design";
         }
         tacoOrder.addTaco(taco);
-        log.info("Processing taco: {}", taco);
         return "redirect:/orders/current";
     }
 
