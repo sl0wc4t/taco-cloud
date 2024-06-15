@@ -42,6 +42,11 @@ public class SecurityConfig {
                                 .loginPage("/login")
                                 .defaultSuccessUrl("/design")
                 )
+                .logout(
+                        authz -> authz
+                                .logoutUrl("/logout")
+                                .logoutSuccessUrl("/login")
+                )
                 .build();
     }
 }
