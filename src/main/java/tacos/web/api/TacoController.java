@@ -1,5 +1,6 @@
 package tacos.web.api;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -72,6 +73,16 @@ public class TacoController {
             order.setCcCVV(patch.getCcCVV());
         }
         return repo.save(order);
+    }
+
+    @DeleteMapping("/{orderId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteOrder(@PathVariable("orderId") Long orderId) {
+        try {
+            repo.deleteById(orderId);
+        } catch (EmptyResultDataAccessException e) {
+
+        }
     }
 
 }
