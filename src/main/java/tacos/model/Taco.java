@@ -1,4 +1,4 @@
-package tacos;
+package tacos.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
